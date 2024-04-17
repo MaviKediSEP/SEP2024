@@ -1,0 +1,23 @@
+import {Query} from "@event-engine/messaging/query";
+import {getConfiguredDocumentStore} from "@server/infrastructure/configuredDocumentStore";
+import jexl from "@app/shared/jexl/get-configured-jexl";
+import {<%= className %>} from "@app/shared/queries/<%= serviceNames.fileName %>/<%= fileName %>";
+import {<%= voNames.propertyName %>, <%= voNames.className %>} from "@app/shared/types/<%= serviceNames.fileName %><%= ns.fileName %><%= voNames.fileName %>";
+import {<%= voNames.className %>Desc} from "@app/shared/types/<%= serviceNames.fileName %><%= ns.fileName %><%= voNames.fileName %>.desc";
+import {
+  INFORMATION_SERVICE_NAME,
+  InformationService
+} from "@server/infrastructure/information-service/information-service";
+import {getExternalServiceOrThrow} from "@server/extensions/get-external-service";
+<% if (!isList) { %>import {NotFoundError} from "@event-engine/messaging/error/not-found-error";<% } %>
+<% if (isList) { %>import {<%= itemNames.propertyName %>, <%= itemNames.className %>} from "@app/shared/types/<%= serviceNames.fileName %><%= itemNS.fileName %><%= itemNames.fileName %>";<% } %>
+<% if (isList || isSingleVOQuery) { %>import {filters} from "@event-engine/infrastructure/DocumentStore/Filter/index";<% } %>
+<% if (isList || isSingleVOQuery) { %>import {asyncIteratorToArray} from "@event-engine/infrastructure/helpers/async-iterator-to-array";<% } %>
+<% if (isList || isSingleVOQuery) { %>import {asyncMap} from "@event-engine/infrastructure/helpers/async-map";<% } %>
+
+export const resolve<%= className %> = async (query: Query<<%= className %>>, deps: object): Promise<<%= voNames.className %>> => {
+  const ds = getConfiguredDocumentStore();
+  <% if (isList || isSingleVOQuery) { %>const infoService = getExternalServiceOrThrow<InformationService>(INFORMATION_SERVICE_NAME, {});<% } %>
+
+  <%- resolve %>
+}

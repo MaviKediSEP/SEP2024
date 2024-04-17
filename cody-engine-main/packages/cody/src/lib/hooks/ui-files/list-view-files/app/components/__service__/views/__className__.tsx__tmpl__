@@ -1,0 +1,51 @@
+import {Box, CircularProgress, Typography} from "@mui/material";
+import {DataGrid, GridColDef, GridToolbar} from "@mui/x-data-grid";
+import {useEffect} from "react";
+import {triggerSideBarAnchorsRendered} from "@frontend/util/sidebar/trigger-sidebar-anchors-rendered";
+import {usePageData} from "@frontend/hooks/use-page-data";
+import {Get<%= className %>} from "@app/shared/queries/<%= serviceNames.fileName %>/get-<%= fileName %>";
+import {useGet<%= className %>} from "@frontend/queries/<%= serviceNames.fileName %>/use-get-<%= fileName %>";
+import NoRowsOverlay from "@frontend/app/components/core/table/NoRowsOverlay";
+<%- imports %>
+
+const <%= className %> = (params: Get<%= className %>) => {
+  const [,addQueryResult] = usePageData();
+  const query = useGet<%= className %>(params);
+  <%- hooks %>
+
+  useEffect(() => {
+    triggerSideBarAnchorsRendered();
+  }, [params]);
+
+  useEffect(() => {
+    addQueryResult('<%= dataReference %>', query);
+  }, [query.dataUpdatedAt])
+
+  const columns: GridColDef[] = [
+    <%- columns %>
+  ];
+
+  return (
+    <Box component="div">
+      <Typography variant="h3" className="sidebar-anchor" sx={{padding: (theme) => theme.spacing(4), paddingLeft: 0}} id="component-<%= serviceNames.fileName %>-<%= fileName %>"><%= name %></Typography>
+      {query.isLoading && <CircularProgress />}
+      {query.isSuccess && <DataGrid
+          columns={columns}
+          rows={query.data}
+          getRowId={row => <% if (identifier) { %>row.<%= identifier %> <% } else { %>JSON.stringify(row) <% } %>}
+          sx={{width: "100%"}}
+          slots={{
+            <% if (!hideToolbar) { %>toolbar: GridToolbar,<% } %>
+            noRowsOverlay: NoRowsOverlay,
+          }}
+          initialState={
+            {pagination: {paginationModel: {pageSize: <%= pageSizeConfig.pageSize %>}}}
+          }
+          pageSizeOptions={<%- toJSON(pageSizeConfig.pageSizeOptions) %>}
+          density="<%= density %>"
+      />}
+    </Box>
+  );
+}
+
+export default <%= className %>;

@@ -1,0 +1,34 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "strict": true,
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "importHelpers": false,
+    "target": "ES2020",
+    "module": "commonjs",
+    "lib": ["esnext", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@app/shared/*": ["packages/shared/src/lib/*"],
+      "@cody-engine/cody/*": ["packages/cody/src/lib/*"],
+      "@cody-engine/contribution": ["packages/contribution/src"],
+      "@cody-engine/contribution/*": ["packages/contribution/src/*"],
+      "@cody-play/*": ["packages/play/src/*"],
+      "@event-engine/descriptions/*": ["packages/descriptions/src/lib/*"],
+      "@event-engine/infrastructure/*": ["packages/infrastructure/src/lib/*"],
+      "@event-engine/messaging/*": ["packages/messaging/src/lib/*"],
+      "@frontend/*": ["packages/fe/src/*"],
+      "@server/*": ["packages/be/src/*"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

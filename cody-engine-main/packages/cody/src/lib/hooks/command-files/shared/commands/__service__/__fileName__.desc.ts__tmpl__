@@ -1,0 +1,20 @@
+import {AggregateCommandDescription} from "@event-engine/descriptions/descriptions";
+
+export const <%= className %>Desc: AggregateCommandDescription = {
+  name: '<%= serviceNames.className %>.<%= className %>',
+  aggregateCommand: <%= isAggregateCommand %>,
+  newAggregate: <% if (newAggregate) { %>true<% } else { %>false<% } %>,
+  aggregateName: "<%= serviceNames.className %>.<%= aggregateName %>",
+  aggregateIdentifier: "<%= aggregateIdentifier %>",
+  <% if (dependencies) { %>dependencies: <%- toJSON(dependencies) %>,<% } %>
+  <% if (deleteState) { %>deleteState: true,<% } %>
+  <% if (deleteHistory) { %>deleteHistory: true,<% } %>
+  _pbBoardId: "<%= _pbBoardId %>",
+  _pbCardId: "<%= _pbCardId %>",
+  _pbCreatedBy: "<%= _pbCreatedBy %>",
+  _pbCreatedAt: "<%= _pbCreatedAt %>",
+  _pbLastUpdatedBy: "<%= _pbLastUpdatedBy %>",
+  _pbLastUpdatedAt: "<%= _pbLastUpdatedAt %>",
+  _pbVersion: <%= _pbVersion %>,
+  _pbLink: "<%- _pbLink %>",
+};
