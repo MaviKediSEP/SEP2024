@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const { generateOutput } = require('./GenerateAIOutput')
 let addedFiles = [];
 
 // Get the absolute path to the cody-engine-main/packages/be directory
@@ -23,14 +24,7 @@ fs.readdir(myFolder, (err, oldDir) => {
         console.log('New files found:');
         addedFiles.forEach(file => {
           console.log(file);
-          fs.readFile(path.join(myFolder, file), (err, data) => {
-            if (err) {
-              console.log(err);
-              return;
-            }
-            console.log('Inhalt der Datei:')
-            console.log(data.toString());
-          });
+          generateOutput();
         });
         oldDir = newDir; // Update oldDir to reflect the current directory state
       }
