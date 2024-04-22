@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Complex HTML Example</title>
+	<style type="text/css">
+		/* Global Styles */
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0 auto;
+			width: 80%;
+			background-color: #f2f2f2;
+		}
+		
+		/* Header Styles */
+		header {
+			background-image: linear-gradient(to bottom, #333, #555);
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+			border-bottom: 1px solid #ccc;
+		}
+		
+		/* Navigation Menu Styles */
+		nav ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		
+		nav li {
+			display: inline-block;
+			margin-right: 20px;
+		}
+		
+		nav a {
+			color: #fff;
+			text-decoration: none;
+		}
+		
+		nav a:hover {
+			color: #ccc;
+		}
+		
+		/* Main Content Area Styles */
+		main {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding: 20px;
+		}
+		
+		section {
+			background-color: #fff;
+			margin-bottom: 20px;
+			padding: 20px;
+			border: 1px solid #ccc;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+		}
+		
+		section h2 {
+			margin-top: 0;
+		}
+		
+		/* Footer Styles */
+		footer {
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+			text-align: center;
+			border-top: 1px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>Complex HTML Example</h1>
+	</header>
+	
+	<nav>
+		<ul>
+			<li><a href="#section-1">Section 1</a></li>
+			<li><a href="#section-2">Section 2</a></li>
+			<li><a href="#section-3">Section 3</a></li>
+		</ul>
+	</nav>
+	
+	<main>
+		<section id="section-1">
+			<h2>Section 1 Title</h2>
+			<p>This is the content for Section 1.</p>
+			<script type="text/javascript">
+				alert("Hello from Section 1!");
+			</script>
+		</section>
+		
+		<section id="section-2">
+			<h2>Section 2 Title</h2>
+			<p>This is the content for Section 2.</p>
+			<script type="text/javascript">
+				alert("Hello from Section 2!");
+			</script>
+		</section>
+		
+		<section id="section-3">
+			<h2>Section 3 Title</h2>
+			<p>This is the content for Section 3.</p>
+			<script type="text/javascript">
+				alert("Hello from Section 3!");
+			</script>
+		</section>
+	</main>
+	
+	<footer>
+		Copyright &copy; 2023 Complex HTML Example
+	</footer>
+	
+	<script type="text/javascript">
+		// Add event listener to navigation menu items
+		document.querySelectorAll('nav a').forEach(function(link) {
+			link.addEventListener('click', function(event) {
+				event.preventDefault();
+				var sectionId = link.getAttribute('href').replace('#', '');
+				document.querySelector(`#${sectionId}`).scrollIntoView({ behavior: 'smooth' });
+			});
+		});
+		
+		// Add event listener to section headings
+		document.querySelectorAll('main h2').forEach(function(header) {
+			header.addEventListener('click', function(event) {
+				event.preventDefault();
+				var sectionId = header.nextElementSibling.id;
+				document.querySelector(`#${sectionId}`).scrollIntoView({ behavior: 'smooth' });
+			});
+		});
+	</script>
+</body>
+</html>
