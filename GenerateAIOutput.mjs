@@ -46,4 +46,4 @@ function extractHTML(content) {
   return extractedContent;
 }
 
-export { generateOutput };
+export { generateOutput, extractHTML };

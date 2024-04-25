@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Template Selector</title>
+    <style>
+        /* Existing styles... */
+    </style>
+</head>
+<body>
+    <h1>Select Website Template</h1>
+
+    <div class="tab">
+        <button class="tablinks active" onclick="openTab(event, 'Template')">Template</button>
+        <button class="tablinks" onclick="openTab(event, 'Styles')">Styles</button>
+    </div>
+
+    <form id="mainForm">
+        <div id="Template" class="tabcontent" style="display: block;">
+            <label for="template">Choose a template:</label>
+            <select id="template" name="template">
+                <option value="">-- Select a template --</option>
+                <option value="template1">Template 1</option>
+                <option value="template2">Template 2</option>
+                <option value="template3">Template 3</option>
+                <!-- Add more template options as needed -->
+            </select>
+            <br><br>
+            <label>Additional Options:</label>
+            <div>
+                <input type="checkbox" id="option1" name="options[]" value="option1">
+                <label for="option1">Option 1</label>
+            </div>
+            <div>
+                <input type="checkbox" id="option2" name="options[]" value="option2">
+                <label for="option2">Option 2</label>
+            </div>
+            <br>
+            <label for="comments">Additional Comments:</label>
+            <textarea id="comments" name="comments"></textarea>
+        </div>
+
+        <div id="Styles" class="tabcontent">
+            <label for="color">Choose a color scheme:</label>
+            <select id="color" name="color">
+                <option value="">-- Select a color --</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+                <option value="red">Red</option>
+                <!-- Add more color options as needed -->
+            </select>
+            <br><br>
+            <label for="font">Choose a font:</label>
+            <select id="font" name="font">
+                <option value="">-- Select a font --</option>
+                <option value="arial">Arial</option>
+                <option value="times">Times New Roman</option>
+                <option value="verdana">Verdana</option>
+                <!-- Add more font options as needed -->
+            </select>
+        </div>
+        <br><br>
+        <button onclick="saveToFile()">Save to File</button>
+    </form>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

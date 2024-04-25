@@ -15,7 +15,7 @@ fs.readFile('index.html', 'utf8', (err, data)=>{
     promptInhalt = data + promptInhalt;
     console.log(promptInhalt);
     const response = await ollama.chat({
-      model: 'llama2',
+      model: 'llama3',
       messages: [{ role: 'user', content: promptInhalt }],
     });
 
