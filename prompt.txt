@@ -1,5 +1,0 @@
-Selected Template: template2
-Selected Color: blue
-Selected Font: arial
-Selected Options: option1
-Additional Comments: adsda

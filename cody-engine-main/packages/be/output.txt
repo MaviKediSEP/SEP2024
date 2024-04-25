@@ -4,42 +4,18 @@
 	<title>Book List</title>
 	<style>
 		body {
-			font-family: Arial;
-			background-color: #f0f0f0;
+			font-family: Arial, sans-serif;
 		}
 		.book-list {
 			list-style: none;
 			padding: 0;
 			margin: 0;
-			border: 1px solid #ccc;
-			border-bottom: none;
-			background-color: #fff;
-			padding: 10px;
-			box-shadow: 0px 2px 5px rgba(0,0,0,0.05);
 		}
 		.book-list li {
 			background-color: #f0f0f0;
 			border-bottom: 1px solid #ccc;
 			padding: 10px;
 			font-size: 16px;
-			margin-bottom: 10px;
-		}
-		#add-book-form {
-			margin-top: 20px;
-			text-align: center;
-		}
-		#add-book-form input[type="text"] {
-			width: 200px;
-			padding: 5px;
-			border: 1px solid #ccc;
-		}
-		#add-book-form button[type="submit"] {
-			background-color: #04A8F2;
-			color: #fff;
-			border: none;
-			padding: 10px 20px;
-			font-size: 16px;
-			cursor: pointer;
 		}
 	</style>
 </head>
@@ -51,7 +27,7 @@
 		<input type="text" id="book-title" name="title"><br>
 		<label for="author">Author:</label>
 		<input type="text" id="author" name="author"><br>
-		<button type="submit" style="background-color: #04A8F2;">Add Book</button>
+		<button type="submit">Add Book</button>
 	</form>
 
 	<script>
@@ -74,3 +50,10 @@
 	</script>
 </body>
 </html>
+
+make the website prettier with inline css and inline javascript
+Selected Template: template2
+Selected Color: blue
+Selected Font: arial
+Selected Options: option1
+Additional Comments: make the Add book button blue
