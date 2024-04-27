@@ -1,3 +1,12 @@
+/*
+server.js erstellt einen einfachen Express-Server, der auf Port 3000 läuft. 
+Er bietet einen Endpunkt "/save-file" an, der POST-Anfragen entgegennimmt.
+Der Inhalt, der in der POST-Anfrage gesendet wird, wird in eine Datei mit dem Namen "prompt.txt" im Serververzeichnis geschrieben. 
+Wenn das Schreiben erfolgreich ist, sendet der Server eine Bestätigungsnachricht zurück, 
+andernfalls eine Fehlermeldung. 
+Der Server stellt außerdem statische Dateien im aktuellen Verzeichnis bereit.
+*/
+
 const express = require("express");
 const fs = require("fs");
 const path = require("path");

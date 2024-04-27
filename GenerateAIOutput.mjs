@@ -1,3 +1,8 @@
+/*
+Dieses Skript liest einen Promptinhalt ein und verwendet das Ollama-Modell "llama3", um eine Antwort auf den Prompt zu generieren. 
+Es extrahiert den HTML-Inhalt aus der generierten Antwort und speichert diesen in "index.html".
+*/
+
 import fs from 'fs';
 import http from 'http';
 import ollama from 'ollama';

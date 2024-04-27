@@ -1,4 +1,9 @@
-// script.js
+/*
+Dieses JavaScript-Skript fängt das Absenden eines Formulars aus "checkboxen.html" ab, 
+liest die ausgewählten Werte aus den Formularfeldern aus und 
+sendet sie dann über einen AJAX-Request an einen Node.js-Server, um sie in einer Datei zu speichern.
+*/
+
 document.getElementById("mainForm").addEventListener("submit", function(event) {
     event.preventDefault();
 

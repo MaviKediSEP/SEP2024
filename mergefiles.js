@@ -1,3 +1,8 @@
+/*
+Dieser Code scannt ein Verzeichnis nach Textdateien, liest 
+den Inhalt dieser Dateien und fügt sie zu einer einzigen Datei zusammen.
+*/
+
 const fs = require('fs');
 const path = require('path');
 

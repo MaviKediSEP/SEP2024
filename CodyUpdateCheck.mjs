@@ -1,3 +1,11 @@
+/*
+Dieses Skript überwacht periodisch Änderungen im Verzeichnis "cody-engine-main/packages/be", 
+findet neu hinzugefügte Dateien und ruft dann die Funktion generateOutput aus der Datei "GenerateAIOutput.mjs" auf, um 
+den Inhalt dieser Dateien zu verarbeiten und HTML-Ausgaben zu generieren. 
+Die Funktion generateOutput erwartet den Inhalt der Datei als Eingabe, um 
+sie an das Ollama-Modell zu übergeben und die Antwort zu erhalten.
+*/
+
 import path from 'path';
 import fs from 'fs';
 import { generateOutput } from './GenerateAIOutput.mjs';

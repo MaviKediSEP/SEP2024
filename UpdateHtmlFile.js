@@ -1,3 +1,9 @@
+/*
+Dieser Code überwacht periodisch Änderungen an Dateien im Ordner "myFolder" und 
+fügt den Inhalt der hinzugefügten Dateien als neue Absätze in eine HTML-Datei ein, 
+die sich in "/var/www/apacheserver/index.html" befindet.
+*/
+
 const fs = require('fs');
 const path = require('path');
 const { getAddedFiles, getMyFolder } = require('./CodyUpdateCheck');
